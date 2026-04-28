@@ -1,0 +1,47 @@
+{
+  "name": "MsaKeyClause",
+  "type": "object",
+  "properties": {
+    "msa_id": {
+      "type": "string",
+      "description": "Reference to the parent MSA"
+    },
+    "clause_name": {
+      "type": "string",
+      "description": "Name or title of the clause"
+    },
+    "clause_reference": {
+      "type": "string",
+      "description": "Section or clause number in the document"
+    },
+    "summary": {
+      "type": "string",
+      "description": "Summary of the clause content"
+    },
+    "notes": {
+      "type": "string"
+    }
+  },
+  "required": [
+    "msa_id",
+    "clause_name"
+  ],
+  "rls": {
+    "create": {
+      "user_condition": {
+        "role": "admin"
+      }
+    },
+    "read": {},
+    "update": {
+      "user_condition": {
+        "role": "admin"
+      }
+    },
+    "delete": {
+      "user_condition": {
+        "role": "admin"
+      }
+    }
+  }
+}

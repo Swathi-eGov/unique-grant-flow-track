@@ -1,0 +1,53 @@
+{
+  "name": "SowDeliverable",
+  "type": "object",
+  "properties": {
+    "sow_id": {
+      "type": "string",
+      "description": "Reference to the parent SOW"
+    },
+    "name": {
+      "type": "string",
+      "description": "Name or description of the deliverable"
+    },
+    "due_date": {
+      "type": "string",
+      "format": "date"
+    },
+    "status": {
+      "type": "string",
+      "enum": [
+        "pending",
+        "in_progress",
+        "completed",
+        "overdue"
+      ],
+      "default": "pending"
+    },
+    "notes": {
+      "type": "string"
+    }
+  },
+  "required": [
+    "sow_id",
+    "name"
+  ],
+  "rls": {
+    "create": {
+      "user_condition": {
+        "role": "admin"
+      }
+    },
+    "read": {},
+    "update": {
+      "user_condition": {
+        "role": "admin"
+      }
+    },
+    "delete": {
+      "user_condition": {
+        "role": "admin"
+      }
+    }
+  }
+}

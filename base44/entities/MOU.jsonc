@@ -1,0 +1,131 @@
+{
+  "name": "MOU",
+  "type": "object",
+  "properties": {
+    "title": {
+      "type": "string"
+    },
+    "partner_name": {
+      "type": "string"
+    },
+    "mou_number": {
+      "type": "string",
+      "description": "MOU reference number"
+    },
+    "partner_type": {
+      "type": "string",
+      "enum": [
+        "government",
+        "ngo",
+        "private",
+        "academic",
+        "multilateral",
+        "other"
+      ]
+    },
+    "partner_address": {
+      "type": "string"
+    },
+    "partner_contact_name": {
+      "type": "string"
+    },
+    "partner_contact_email": {
+      "type": "string"
+    },
+    "partner_signatory_name": {
+      "type": "string"
+    },
+    "partner_signatory_designation": {
+      "type": "string"
+    },
+    "our_contact_name": {
+      "type": "string"
+    },
+    "our_contact_email": {
+      "type": "string"
+    },
+    "our_signatory_name": {
+      "type": "string"
+    },
+    "our_signatory_designation": {
+      "type": "string"
+    },
+    "signed_date": {
+      "type": "string",
+      "format": "date",
+      "description": "Date MOU was signed"
+    },
+    "effective_date": {
+      "type": "string",
+      "format": "date"
+    },
+    "end_date": {
+      "type": "string",
+      "format": "date"
+    },
+    "initial_term_years": {
+      "type": "number"
+    },
+    "review_cycle": {
+      "type": "string",
+      "enum": [
+        "6 months",
+        "annual",
+        "bi-annual",
+        "as needed"
+      ],
+      "description": "How often the MOU is reviewed"
+    },
+    "status": {
+      "type": "string",
+      "enum": [
+        "active",
+        "expired",
+        "draft",
+        "terminated"
+      ],
+      "default": "active"
+    },
+    "purpose": {
+      "type": "string"
+    },
+    "scope_of_collaboration": {
+      "type": "string"
+    },
+    "governing_law": {
+      "type": "string"
+    },
+    "pdf_url": {
+      "type": "string"
+    },
+    "notes": {
+      "type": "string"
+    },
+    "archived": {
+      "type": "boolean",
+      "default": false
+    }
+  },
+  "required": [
+    "title",
+    "partner_name"
+  ],
+  "rls": {
+    "create": {
+      "user_condition": {
+        "role": "admin"
+      }
+    },
+    "read": {},
+    "update": {
+      "user_condition": {
+        "role": "admin"
+      }
+    },
+    "delete": {
+      "user_condition": {
+        "role": "admin"
+      }
+    }
+  }
+}

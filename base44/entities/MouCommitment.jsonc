@@ -1,0 +1,53 @@
+{
+  "name": "MouCommitment",
+  "type": "object",
+  "properties": {
+    "mou_id": {
+      "type": "string",
+      "description": "Reference to the parent MOU"
+    },
+    "name": {
+      "type": "string",
+      "description": "Name or description of the commitment"
+    },
+    "due_date": {
+      "type": "string",
+      "format": "date"
+    },
+    "status": {
+      "type": "string",
+      "enum": [
+        "pending",
+        "in_progress",
+        "completed",
+        "overdue"
+      ],
+      "default": "pending"
+    },
+    "notes": {
+      "type": "string"
+    }
+  },
+  "required": [
+    "mou_id",
+    "name"
+  ],
+  "rls": {
+    "create": {
+      "user_condition": {
+        "role": "admin"
+      }
+    },
+    "read": {},
+    "update": {
+      "user_condition": {
+        "role": "admin"
+      }
+    },
+    "delete": {
+      "user_condition": {
+        "role": "admin"
+      }
+    }
+  }
+}

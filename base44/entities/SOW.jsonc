@@ -1,0 +1,117 @@
+{
+  "name": "SOW",
+  "type": "object",
+  "properties": {
+    "title": {
+      "type": "string",
+      "description": "Title or short description of the SOW"
+    },
+    "vendor_name": {
+      "type": "string",
+      "description": "Name of the vendor/service provider"
+    },
+    "sow_number": {
+      "type": "string",
+      "description": "SOW reference number, e.g. SOW-01"
+    },
+    "grant_id": {
+      "type": "string",
+      "description": "Reference to the parent grant"
+    },
+    "msa_id": {
+      "type": "string",
+      "description": "Reference to the linked MSA"
+    },
+    "vendor_email": {
+      "type": "string"
+    },
+    "description": {
+      "type": "string"
+    },
+    "start_date": {
+      "type": "string",
+      "format": "date"
+    },
+    "end_date": {
+      "type": "string",
+      "format": "date"
+    },
+    "status": {
+      "type": "string",
+      "enum": [
+        "active",
+        "expired",
+        "draft",
+        "terminated"
+      ],
+      "default": "active"
+    },
+    "monthly_rate": {
+      "type": "number",
+      "description": "Monthly rate / fee for this SOW"
+    },
+    "total_value": {
+      "type": "number",
+      "description": "Total contract value"
+    },
+    "payment_day": {
+      "type": "number",
+      "description": "Day of month payment is due, e.g. 1, 15, 30"
+    },
+    "advance_amount": {
+      "type": "number"
+    },
+    "pdf_url": {
+      "type": "string"
+    },
+    "notes": {
+      "type": "string"
+    },
+    "archived": {
+      "type": "boolean",
+      "default": false
+    },
+    "personnel": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "name": {
+            "type": "string"
+          },
+          "rate_per_month": {
+            "type": "number"
+          },
+          "allocation_percent": {
+            "type": "number"
+          },
+          "role": {
+            "type": "string"
+          }
+        }
+      }
+    }
+  },
+  "required": [
+    "title",
+    "vendor_name"
+  ],
+  "rls": {
+    "create": {
+      "user_condition": {
+        "role": "admin"
+      }
+    },
+    "read": {},
+    "update": {
+      "user_condition": {
+        "role": "admin"
+      }
+    },
+    "delete": {
+      "user_condition": {
+        "role": "admin"
+      }
+    }
+  }
+}
