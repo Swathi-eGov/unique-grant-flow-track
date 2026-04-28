@@ -26,7 +26,7 @@ jobs:
       channel_id: ${{ steps.get-channel.outputs.channel_id }}
 
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v6
 
       - name: Setup Firebase CLI
         run: npm install -g firebase-tools
@@ -79,7 +79,7 @@ jobs:
         working-directory: web
 
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v6
 
       - name: Setup Node.js
         uses: actions/setup-node@v4
@@ -111,7 +111,7 @@ jobs:
     environment: production  # Requires approval if configured
 
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v6
 
       - name: Download build artifacts
         uses: actions/download-artifact@v4
